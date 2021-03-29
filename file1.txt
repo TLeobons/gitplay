@@ -1,0 +1,24 @@
+git diff compares working area and staging directory
+-- staged between staging area and last commit
+git diff HEAD all changs staged or unstaged since last commit
+git checkout HEAD <files> = git checkout -- <files> reverts changes to last commit (head only points to commits)
+OR git restore <files> =~ git restore --source HEAD~2 doesnt detach head, it just reverts changes
+|-> files go back to their HEAD state
+
+
+git restore --staged <files> unstages files (not revert changes, yes restores has 2 uses)
+
+git reset <commit-hash> .. changes still in the working directory, but commits are lost (rewrites history)
+git reset --hard <commit-hash> revert working directory changes also
+|-> prefer restore since I dont lose commits
+
+git revert <commit-hash> makes a new commit, which undoes changes. it doesnt move the pointer (HEAD) backwards so its less drastic
+|-> prefer since reset can get rid of commits that other collaborators have in their machines
+
+git remote -v more concise than git remote show origin
+git remote remove <name>, git remote rename <old> <new>
+
+push x push origin master?
+git push origin pancake:waffle push local pancake branch to remote waffle branch 
+ have to set up upstream -u? for every branch? so am I pushing all code to remote main even for feature branches?
+ 
